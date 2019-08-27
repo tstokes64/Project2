@@ -50,15 +50,17 @@ def ticker(chosen_symbol):
     session = Session(engine)
 
     # Return all data for a ticker symbol
-    try:
-        results = session.query(securities.ticker_symbol, securities.security, securities.gics_sector,
-                                securities.gics_sub_industry).filter(securities.ticker_symbol == chosen_symbol).all()
+    results = session.query(securities.ticker_symbol, securities.security, securities.gics_sector,
+                            securities.gics_sub_industry).filter(securities.ticker_symbol == chosen_symbol).all()
+    if results:
         for result in results:
-            return jsonify(result)
-    except TypeError:
-        return "No such Ticker Symbol"
-    session.close()
-
+            if result:
+                return jsonify(result)
+            else:
+                return jsonify("No such ticker symbol")
+        session.close()
+    else:
+        return jsonify("No such ticker symbol")
 
 if __name__ == "__main__":
     app.run(debug=True)
