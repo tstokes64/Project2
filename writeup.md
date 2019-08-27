@@ -13,9 +13,9 @@ For our ETL Project, we used data found at https://www.kaggle.com/dgawlik/nyse#s
 \
 We were able to merge our data using two of the CSV files available at that website, specifically \'91securities.csv\'92 and \'91fundamentals.csv\'92. We merged these CSV files using their common primary key \'93Ticker Symbol\'94. \
 \
-Upon merging the files, we cleaned the data frame created. The column were also renamed to show a cleaner format, IE from \'91ticker symbol\'92 to \'91ticker_symbol\'92. \
+Upon merging the files, we cleaned the dataframe created. The columns were also renamed to show a cleaner format, IE from \'91ticker symbol\'92 to \'91ticker_symbol\'92. \
 \
-We then connected the data to a local database using Postgres. We created the dataframes on our computers within our local SQL environment first, then pushed the cleaned data frame into SQL using pandas, using the \'91to_sql\'92 command. \
+We then connected the data to a local database using Postgres. We created the dataframes on our computers within our local SQL environment first, then pushed the cleaned dataframe into SQL using pandas, using the \'91to_sql\'92 command. \
 \
 Now we were able to confirm the data was added by querying the securities and fund stock databases. \
 \
